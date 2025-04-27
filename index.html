@@ -2,79 +2,67 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>🛒 Product Parser Tool</title>
+  <title>Product Summary</title>
 
   <!-- Google Font: Poppins -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 
   <style>
-    * {
-      box-sizing: border-box;
-    }
     body {
       font-family: 'Poppins', sans-serif;
-      background-color: #f1f3f5;
+      background-color: #f8f9fa;
       margin: 0;
       padding: 0;
-      height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
     }
 
     header {
-      width: 100%;
-      padding: 20px 40px;
+      width: 70%;
+      padding: 20px;
       background: #ffffff;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
       text-align: left;
     }
 
     header h1 {
       margin: 0;
-      font-size: 26px;
+      font-size: 24px;
       color: #333;
     }
 
     .container {
-      width: 50%;
-      height: 50%;
-      margin-top: 40px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
+      width: 30%;
+      margin-top: 30px;
     }
 
     textarea, #output {
-      width: 100%;
-      height: 45%;
+      width: 70%;
+      margin-top: 20px;
       padding: 15px;
       font-size: 16px;
       border: 1px solid #ccc;
-      border-radius: 10px;
+      border-radius: 8px;
       background: #ffffff;
-      resize: none;
       box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-    }
-
-    #output {
-      margin-top: 20px;
-      white-space: pre-wrap;
+      resize: vertical;
+      min-height: 150px;
     }
 
     .button-row {
+      margin-top: 15px;
       display: flex;
       justify-content: space-between;
-      margin-top: 15px;
     }
 
     button {
-      padding: 10px 25px;
-      font-size: 16px;
-      font-weight: 600;
+      padding: 10px 20px;
       border: none;
       border-radius: 8px;
+      font-weight: 600;
       cursor: pointer;
+      font-size: 16px;
     }
 
     .parse-btn {
@@ -92,11 +80,16 @@
     }
 
     #copyStatus {
-      text-align: center;
       margin-top: 10px;
       color: green;
       font-weight: 600;
       display: none;
+    }
+
+    #output {
+      white-space: pre-wrap;
+      margin-top: 20px;
+      background: #ffffff;
     }
 
     @media (max-width: 768px) {
@@ -109,20 +102,21 @@
 <body>
 
   <header>
-    <h1>🛒 Product Parser Tool</h1>
+    <h1>🛒 Product Summary</h1>
   </header>
 
   <div class="container">
+
     <textarea id="rawData" placeholder="Paste your raw product data here..."></textarea>
 
     <div class="button-row">
-      <button class="parse-btn" onclick="processData()">Parse Data</button>
+      <button class="parse-btn" onclick="processData()">Submit</button>
       <button class="copy-btn" onclick="copyOutput()">Copy Output</button>
     </div>
 
     <div id="copyStatus">✔️ Output copied!</div>
-
     <div id="output"></div>
+
   </div>
 
   <script src="app.js"></script>
