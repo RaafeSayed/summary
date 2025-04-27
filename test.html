@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Product Parser</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        textarea { width: 100%; height: 200px; padding: 10px; font-size: 16px; }
+        button { padding: 10px 20px; font-size: 16px; margin-top: 10px; }
+        #output { margin-top: 20px; white-space: pre-line; font-family: monospace; }
+    </style>
+</head>
+<body>
+    <h1>🛍️ Product Parser</h1>
+
+    <textarea id="rawData" placeholder="Paste your raw data here..."></textarea><br>
+    <button onclick="processData()">Parse Data</button>
+
+    <div id="output"></div>
+
+    <script src="app.js"></script>
+</body>
+</html>
