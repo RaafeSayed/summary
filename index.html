@@ -24,9 +24,10 @@
       box-sizing: border-box;
       resize: vertical;
     }
-    .button-group {
+    .button-row {
+      display: flex;
+      justify-content: space-between;
       margin-top: 20px;
-      text-align: center;
     }
     button {
       padding: 10px 20px;
@@ -69,7 +70,8 @@
 
   <textarea id="rawData" placeholder="Paste your raw product data here..."></textarea>
 
-  <div class="button-group">
+  <!-- Buttons Row: Parse on Left, Copy on Right -->
+  <div class="button-row">
     <button class="parse-btn" onclick="processData()">Parse Data</button>
     <button class="copy-btn" onclick="copyOutput()">Copy Output</button>
   </div>
@@ -80,4 +82,3 @@
 
 </body>
 </html>
-
