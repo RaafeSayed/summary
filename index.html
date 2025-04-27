@@ -1,24 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Product Summary</title>
-    <style>
-        body { font-family: Arial, sans-serif; margin: 20px; }
-        textarea { width: 100%; height: 200px; padding: 10px; font-size: 16px; }
-        button { padding: 10px 20px; font-size: 16px; margin-top: 10px; }
-        #output { margin-top: 20px; white-space: pre-line; font-family: monospace; background: #f9f9f9; padding: 10px; border: 1px solid #ccc; }
-    </style>
+  <meta charset="UTF-8">
+  <title>Product Parser</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 30px;
+      background-color: #f2f6fc;
+    }
+    h1 {
+      color: #333;
+      text-align: center;
+    }
+    textarea {
+      width: 100%;
+      height: 200px;
+      padding: 15px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      margin-top: 20px;
+      box-sizing: border-box;
+      resize: vertical;
+    }
+    .button-group {
+      margin-top: 20px;
+      text-align: center;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      margin: 5px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .parse-btn {
+      background-color: #007bff;
+      color: white;
+    }
+    .parse-btn:hover {
+      background-color: #0056b3;
+    }
+    .copy-btn {
+      background-color: #28a745; /* Green */
+      color: white;
+    }
+    .copy-btn:hover {
+      background-color: #1e7e34;
+    }
+    #output {
+      margin-top: 30px;
+      white-space: pre-wrap;
+      background: #ffffff;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-family: 'Courier New', Courier, monospace;
+      min-height: 150px;
+    }
+  </style>
 </head>
 <body>
-    <h1>🛍️ Product Summary</h1>
 
-    <textarea id="rawData" placeholder="Paste your raw data here..."></textarea><br>
-    <button onclick="processData()">Parse Data</button>
-    <button onclick="copyOutput()">Copy Output</button>
+  <h1>🛒 Product Parser Tool</h1>
 
-    <div id="output"></div>
+  <textarea id="rawData" placeholder="Paste your raw product data here..."></textarea>
 
-    <script src="app.js"></script>
+  <div class="button-group">
+    <button class="parse-btn" onclick="processData()">Parse Data</button>
+    <button class="copy-btn" onclick="copyOutput()">Copy Output</button>
+  </div>
+
+  <div id="output"></div>
+
+  <script src="app.js"></script>
+
 </body>
 </html>
+
