@@ -2,85 +2,123 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Product Parser</title>
+  <title>Product Summary</title>
 
-  <!-- Google Font - Poppins -->
+  <!-- Google Font: Poppins -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 
   <style>
     body {
       font-family: 'Poppins', sans-serif;
-      margin: 20px;
       background-color: #f8f9fa;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
+
+    header {
+      width: 100%;
+      padding: 20px;
+      background: #ffffff;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      text-align: left;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 24px;
+      color: #333;
+    }
+
+    .container {
+      width: 50%;
+      margin-top: 30px;
+    }
+
     textarea, #output {
       width: 100%;
       margin-top: 20px;
-      padding: 12px;
+      padding: 15px;
       font-size: 16px;
       border: 1px solid #ccc;
       border-radius: 8px;
-      background: #fff;
+      background: #ffffff;
       box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      resize: vertical;
+      min-height: 150px;
     }
-    button {
-      padding: 10px 20px;
-      margin-top: 10px;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      font-weight: 600;
-    }
-    .parse-btn {
-      background-color: #007bff;
-      color: white;
-    }
-    .copy-btn {
-      background-color: #28a745;
-      color: white;
-      margin-left: 10px;
-    }
-    .copy-btn:hover, .parse-btn:hover {
-      opacity: 0.9;
-    }
-    #copyStatus {
-      color: green;
-      margin-top: 5px;
-      font-weight: 600;
-      display: none;
-    }
+
     .button-row {
       margin-top: 15px;
       display: flex;
       justify-content: space-between;
-      align-items: center;
     }
+
+    button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .parse-btn {
+      background-color: #007bff;
+      color: white;
+    }
+
+    .copy-btn {
+      background-color: #28a745;
+      color: white;
+    }
+
+    .parse-btn:hover, .copy-btn:hover {
+      opacity: 0.9;
+    }
+
+    #copyStatus {
+      margin-top: 10px;
+      color: green;
+      font-weight: 600;
+      display: none;
+    }
+
     #output {
       white-space: pre-wrap;
-      background: #ffffff;
       margin-top: 20px;
-      padding: 15px;
-      min-height: 150px;
+      background: #ffffff;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        width: 90%;
+      }
     }
   </style>
 </head>
-</head>
 <body>
 
-  <h1>🛒 Product Parser Tool</h1>
+  <header>
+    <h1>🛒 Product Parser Tool</h1>
+  </header>
 
-  <textarea id="rawData" placeholder="Paste your raw product data here..."></textarea>
+  <div class="container">
 
-  <div class="button-row">
-    <button class="parse-btn" onclick="processData()">Parse Data</button>
-    <div class="button-group">
+    <textarea id="rawData" placeholder="Paste your raw product data here..."></textarea>
+
+    <div class="button-row">
+      <button class="parse-btn" onclick="processData()">Parse Data</button>
       <button class="copy-btn" onclick="copyOutput()">Copy Output</button>
-      <div id="copyStatus">✔️ Copied to clipboard!</div>
     </div>
+
+    <div id="copyStatus">✔️ Output copied!</div>
+
+    <div id="output"></div>
+
   </div>
-
-  <div id="output"></div>
-
   <script src="app.js"></script>
 
 </body>
