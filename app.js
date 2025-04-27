@@ -65,3 +65,21 @@ function processData() {
 
     document.getElementById('output').innerText = outputLines.join('\n');
 }
+
+function copyOutput() {
+    const outputText = document.getElementById('output').innerText;
+
+    if (!outputText) {
+        alert("No output to copy!");
+        return;
+    }
+
+    navigator.clipboard.writeText(outputText)
+        .then(() => {
+            alert("Output copied to clipboard!");
+        })
+        .catch(err => {
+            console.error('Error copying text: ', err);
+        });
+}
+
