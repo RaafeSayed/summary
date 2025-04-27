@@ -1,84 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Product Parser</title>
-  <style>
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      margin: 30px;
-      background-color: #f2f6fc;
-    }
-    h1 {
-      color: #333;
-      text-align: center;
-    }
-    textarea {
-      width: 100%;
-      height: 200px;
-      padding: 15px;
-      font-size: 16px;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      margin-top: 20px;
-      box-sizing: border-box;
-      resize: vertical;
-    }
-    .button-row {
-      display: flex;
-      justify-content: space-between;
-      margin-top: 20px;
-    }
-    button {
-      padding: 10px 20px;
-      font-size: 16px;
-      margin: 5px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-    .parse-btn {
-      background-color: #007bff;
-      color: white;
-    }
-    .parse-btn:hover {
-      background-color: #0056b3;
-    }
-    .copy-btn {
-      background-color: #28a745; /* Green */
-      color: white;
-    }
-    .copy-btn:hover {
-      background-color: #1e7e34;
-    }
-    #output {
-      margin-top: 30px;
-      white-space: pre-wrap;
-      background: #ffffff;
-      padding: 20px;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      font-family: 'Courier New', Courier, monospace;
-      min-height: 150px;
-    }
-  </style>
-</head>
-<body>
+function copyOutput() {
+    const outputText = document.getElementById('output').innerText;
+    const copyButton = document.querySelector('.copy-btn');
+    const copyStatus = document.getElementById('copyStatus');
 
-  <h1>🛒 Product Parser Tool</h1>
+    if (!outputText) {
+        alert("No output to copy!");
+        return;
+    }
 
-  <textarea id="rawData" placeholder="Paste your raw product data here..."></textarea>
+    navigator.clipboard.writeText(outputText)
+        .then(() => {
+            // Show success message
+            copyStatus.style.display = 'block';
 
-  <!-- Buttons Row: Parse on Left, Copy on Right -->
-  <div class="button-row">
-    <button class="parse-btn" onclick="processData()">Parse Data</button>
-    <button class="copy-btn" onclick="copyOutput()">Copy Output</button>
-  </div>
+            // Change button to copied ✔️
+            copyButton.innerText = "✔️ Copied!";
+            copyButton.style.backgroundColor = "#218838";
 
-  <div id="output"></div>
-
-  <script src="app.js"></script>
-
-</body>
-</html>
+            // After 2 seconds, reset everything
+            setTimeout(() => {
+                copyButton.innerText = "Copy Output";
+                copyButton.style.backgroundColor = "#28a745";
+                copyStatus.style.display = 'none';
+            }, 2000);
+        })
+        .catch(err => {
+            console.error('Error copying text: ', err);
+        });
+}
